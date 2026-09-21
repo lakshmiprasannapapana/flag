@@ -1,0 +1,105 @@
+* {
+  box-sizing: border-box;
+}
+
+.flag-scene {
+  position: relative;
+  width: 420px;
+  height: 520px;
+  overflow: hidden;
+  background: #eafcff;
+}
+
+/* Pole and stand */
+.pole {
+  position: absolute;
+  top: 70px;
+  left: 95px;
+  width: 10px;
+  height: 355px;
+  background: linear-gradient(90deg, #700 0 25%, #bd0000 25% 70%, #5c0000 70%);
+  z-index: 2;
+}
+
+.base {
+  position: absolute;
+  left: 55px;
+  bottom: 75px;
+  width: 100px;
+  height: 24px;
+  border-radius: 50% 50% 8px 8px;
+  background: #161616;
+  transform: perspective(80px) rotateX(28deg);
+}
+
+/* Flag */
+.flag {
+  position: absolute;
+  top: 72px;
+  left: 105px;
+  width: 245px;
+  height: 145px;
+  z-index: 1;
+  transform-origin: left center;
+  animation: flag-wave 2.4s ease-in-out infinite;
+  filter: drop-shadow(7px 8px 4px rgba(0, 0, 0, 0.22));
+}
+
+.stripe {
+  height: 33.333%;
+  position: relative;
+}
+
+.saffron {
+  background: #ff671f;
+  border-radius: 0 0 45% 0 / 0 0 16% 0;
+}
+
+.white {
+  display: grid;
+  place-items: center;
+  background: #fff;
+}
+
+.green {
+  background: #138808;
+  border-radius: 0 0 45% 0 / 0 0 16% 0;
+}
+
+/* Ashoka Chakra */
+.chakra {
+  color: #000080;
+  font-family: Arial, sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  animation: chakra-spin 10s linear infinite;
+}
+
+/* Wind animation */
+@keyframes flag-wave {
+  0%, 100% {
+    transform: perspective(700px) rotateY(0deg) skewY(0deg);
+  }
+  25% {
+    transform: perspective(700px) rotateY(-14deg) skewY(2deg);
+  }
+  55% {
+    transform: perspective(700px) rotateY(10deg) skewY(-2deg);
+  }
+  75% {
+    transform: perspective(700px) rotateY(-6deg) skewY(1deg);
+  }
+}
+
+@keyframes chakra-spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flag,
+  .chakra {
+    animation: none;
+  }
+}
